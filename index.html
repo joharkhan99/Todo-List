@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--for materliaze-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Task List</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .card {
+      box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.4);
+      transform: translateY(5%);
+    }
+
+    i {
+      color: red;
+      cursor: pointer;
+      transition: transform .3s;
+      -webkit-user-select: none;
+    }
+
+    i:active {
+      transform: translateY(4px);
+      transform: scale(0.8);
+    }
+
+    .btn:active {
+      transform: scale(0.8);
+    }
+
+    .alert {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 100;
+      font-size: 1.2rem;
+      font-weight: 500;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.25);
+      padding: 10px;
+    }
+
+    .alert--add {
+      color: green;
+    }
+
+    .alert--del {
+      color: red;
+    }
+
+    .alert--add::before,
+    .alert--del::before {
+      content: '';
+      left: 0;
+      top: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #00C642;
+      opacity: 0.28;
+      z-index: -12;
+    }
+
+    .alert--del::before {
+      background-color: tomato !important;
+    }
+
+    /* label focus color */
+    .container .input-field input[type=text]:focus+label {
+      color: rgb(26,115,232);
+    }
+
+    /* label underline focus color */
+    .container .input-field input[type=text]:focus {
+      border-bottom: 1px solid rgb(26,115,232);
+      box-shadow: 0 1px 0 0 rgb(26,115,232);
+    }
+    button{
+      background-color: rgb(26,115,232) !important;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <div class="card" id="main">
+          <div class="card-content">
+            <span class="card-title">Task List</span>
+            <div class="row">
+              <form id="task-form">
+                <div class="col input-field s12">
+                  <input type="text" id="task" name="task">
+                  <label for="task">New Task</label>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit">Add Task</button>
+              </form>
+            </div>
+          </div>
+          <div class="card-action">
+            <h5 class="task-title">Tasks</h5>
+            <div class="col input-field s12">
+              <input type="text" name="filter" id="filter">
+              <label for="filter">Search Tasks</label>
+            </div>
+            <ul class="collection"></ul>
+            <a href="#" class="clear-tasks btn waves-effect waves-light  red">Clear Tasks</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--for materlize-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
